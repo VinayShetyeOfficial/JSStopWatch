@@ -1,0 +1,370 @@
+:root {
+    /* Define color variables */
+    --orange: #ffa600;
+    --grey: #f3f3f3;
+    --white: #fff;
+    --base-color: var(--orange);
+    --border: #c98300;
+  }
+  
+  /* Reset default margin and padding for all elements, and set box-sizing to border-box */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    /* Set background color and font */
+    background: var(--base-color);
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+      Helvetica, Arial, "Lucida Grande", sans-serif;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px;
+  
+    /* Set display to flex and text color to white */
+    display: flex;
+    color: var(--white);
+    min-width: 390px;
+  
+    /* Align content to the right side */
+    justify-content: flex-end;
+  }
+  
+  /* Add center class for centering text */
+  .center {
+    text-align: center;
+  }
+  
+  /* Add styles for title class */
+  .title {
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 10px;
+    text-underline-position: right;
+    text-decoration-color: var(--border);
+  }
+  
+  /* Add styles for the stopwatch wrapper */
+  .wrapper {
+    width: 44vw;
+    padding: 1.5em;
+    position: sticky;
+    top: 30px;
+    left: 30px;
+    height: calc(100vh - 60px);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--base-color);
+  }
+  
+  /* Add Roboto font for h1, h2, and h3 */
+  h1,
+  h2,
+  h3 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-size: 2.6em;
+    text-transform: uppercase;
+  }
+  
+  /* Add styles for wrapper p elements */
+  .wrapper p {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    width: 18em;
+    margin: auto;
+    outline: 2px solid var(--border);
+    outline-offset: -4px;
+    margin-bottom: 10px;
+  }
+  
+  /* Add styles for hours, minutes, seconds, and milli elements */
+  #hours,
+  #minutes,
+  #seconds,
+  #milli {
+    position: relative;
+    font-size: 3em;
+  }
+  
+  /* Add width for micro and milli elements */
+  #micro {
+    width: 25px;
+  }
+  
+  #milli {
+    width: 30px;
+  }
+  
+  /* Styles for the hours, minutes, and seconds elements */
+  #hours,
+  #minutes,
+  #seconds {
+    width: 70px;
+  }
+  
+  #hours::before {
+    /* "H" label for hours element */
+    content: "H";
+    position: absolute;
+    font-size: 15px;
+    left: 40%;
+    transform: translate(-50%, 0);
+    margin-top: -1em;
+  }
+  
+  #minutes::before {
+    /* "M" label for minutes element */
+    content: "M";
+    position: absolute;
+    font-size: 15px;
+    left: 40%;
+    transform: translate(-50%, 0);
+    margin-top: -1em;
+  }
+  
+  #seconds::before {
+    /* "S" label for seconds element */
+    content: "S";
+    position: absolute;
+    font-size: 15px;
+    left: 40%;
+    transform: translate(-50%, 0);
+    margin-top: -1em;
+  }
+  
+  /* Styles for the buttons */
+  button {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-color: var(--base-color);
+    color: var(--white);
+    border: 1px solid var(--white);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.23em;
+    padding: 18px 10px;
+    width: 180px;
+    margin: 10px;
+    outline: none;
+  }
+  
+  /* Hover effect for buttons */
+  button:hover {
+    background-color: var(--white);
+    border: 1px solid var(--white);
+    color: var(--base-color);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+  }
+  
+  /* Styles for the reset and split buttons */
+  #button-reset,
+  #button-split {
+    cursor: not-allowed;
+  }
+  
+  /* Split styles /
+      / Container for the split table */
+  .split {
+    margin-left: 35px;
+    flex-grow: 1;
+  }
+  
+  /* Styles for the split table */
+  .splitTable {
+    border-collapse: collapse;
+    font-size: 1.6em;
+    font-weight: 100;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    outline: 3px solid var(--border);
+    outline-style: double;
+  }
+  
+  /* Styles for the cells in the split table */
+  .splitTable th,
+  td {
+    padding: 5px;
+  }
+  
+  /* Styles for the rows in the split table */
+  .splitTable tr {
+    display: flex;
+  }
+  
+  /* Widths for the first and second columns in the split table */
+  .split th:nth-child(1),
+  .split tr td:nth-child(1) {
+    width: 10%;
+  }
+  
+  .split th:nth-child(2),
+  .split tr td:nth-child(2) {
+    /* Set the width of the second column to 30% */
+    width: 30%;
+    /* Set the flex-shrink property to 2 */
+    flex-shrink: 2;
+  }
+  
+  .split th:nth-child(3),
+  .split tr td:nth-child(3) {
+    /* Set the width of the third column to 50% */
+    width: 50%;
+    /* Set the flex-grow property to 1 */
+    flex-grow: 1;
+  }
+  
+  /* Add a bottom border to the first row of the table head */
+  .splitTable thead > tr:nth-child(1) {
+    border-bottom: 2px solid blue;
+  }
+  
+  /* Add a top border to all rows in the .timings section except for the first */
+  .splitTable > .timings > tr:nth-child(n + 2) {
+    border-top: 0.1px solid var(--border);
+  }
+  
+  /* Media queries */
+  
+  /* Media query for devices with a maximum width of 1315px */
+  @media only screen and (max-width: 1315px) {
+    /* Decrease font size for screens with a width of 1315px or less */
+    html {
+      font-size: 80%;
+    }
+  
+    /* Add an offset to the outline property for paragraphs in the .wrapper class */
+    .wrapper p {
+      outline-offset: -2px;
+      width: 20em;
+    }
+  }
+  
+  /* Media query for devices with a maximum width of 1200px */
+  @media only screen and (max-width: 1200px) {
+    /* Decrease font size for screens with a width of 1200px or less */
+    html {
+      font-size: 68%;
+    }
+  
+    /* Decrease font size for buttons */
+    button {
+      font-size: 17px;
+    }
+  
+    /* Decrease padding and width for buttons */
+    button {
+      padding: 9px 5px;
+      width: 90px;
+      padding: 15px 7px;
+      width: 140px;
+    }
+  }
+  
+  /* Media query for devices with a maximum width of 1000px */
+  @media only screen and (max-width: 1000px) {
+    /* Add padding to the body */
+    body {
+      padding: 15px;
+    }
+  
+    /* Decrease width and add padding to the .wrapper class */
+    .wrapper {
+      width: 44vw;
+      padding: 1.5em;
+      height: 50%;
+    }
+  
+    /* Decrease padding and width for buttons */
+    button {
+      padding: 9px 5px;
+      width: 90px;
+      padding: 12px 3px;
+      width: 120px;
+    }
+  }
+  
+  /* Media query for devices with a maximum width of 900px */
+  @media only screen and (max-width: 900px) {
+    /* Change the layout direction of the body to column */
+    body {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    /* Decrease width of the .wrapper class */
+    .wrapper {
+      width: 70%;
+    }
+  
+    /* Decrease width and remove margins for the .split class */
+    .split {
+      width: 80%;
+      margin: 0;
+    }
+  }
+  
+  /* Media query for devices with a maximum width of 590px */
+  @media only screen and (max-width: 590px) {
+    /* Reduce the width of the wrapper element to 80% */
+    .wrapper {
+      width: 80%;
+    }
+  
+    /* Reduce the width of the split element to 90% and remove margins */
+    .split {
+      width: 90%;
+      margin: 0;
+    }
+  }
+  
+  /* Media query for devices with a maximum width of 525px */
+  @media only screen and (max-width: 525px) {
+    /* Increase the width of the wrapper element to 95% */
+    .wrapper {
+      width: 95%;
+    }
+  
+    /* Reduce the width of the split element to 90% and remove margins */
+    .split {
+      width: 90%;
+      margin: 0;
+    }
+  }
+  
+  /* Media query for devices with a maximum width of 505px */
+  @media only screen and (max-width: 505px) {
+    /* Reduce the font size of the entire page to 50% */
+    html {
+      font-size: 50%;
+    }
+  
+    /* Increase the width of the wrapper element to 95% */
+    .wrapper {
+      width: 95%;
+    }
+  
+    /* Reduce the width of the split element to 90% and remove margins */
+    .split {
+      width: 90%;
+      margin: 0;
+    }
+  
+    /* Reduce the padding and width of the button element */
+    button {
+      padding: 9px 5px;
+      width: 50px;
+      padding: 9px 0px;
+      width: 90px;
+    }
+  }
+  

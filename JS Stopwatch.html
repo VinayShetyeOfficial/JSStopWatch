@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Stop Watch</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+    <div class="wrapper center">
+        <h1 class="title center">Stopwatch</h1>
+        <h2>javaScript stopwatch</h2>
+        <p>
+            <span id="hours">00:</span>
+            <!-- Display hours -->
+            <span id="minutes">00:</span>
+            <!-- Display minutes -->
+            <span id="seconds">00.</span>
+            <!-- Display seconds -->
+            <span id="milli">0</span>
+            <!-- Display milliseconds -->
+            <span id="micro">00</span>
+            <!-- Display microseconds -->
+        </p>
+        <button id="button-start">Start</button>
+        <!-- Start button to begin stopwatch -->
+        <button id="button-split" disabled>Split</button>
+        <!-- Split button to record split timings -->
+        <button id="button-reset" disabled>Reset</button>
+        <!-- Reset button to clear stopwatch and timings -->
+    </div>
+    <div class="split">
+        <h1 class="title center">Split timings</h1>
+        <table class="splitTable">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <!-- Column for split number -->
+                    <th>Split timings</th>
+                    <!-- Column for split timings -->
+                    <th>Timestamp</th>
+                    <!-- Column for timestamp of split -->
+                </tr>
+            </thead>
+            <tbody class="timings" id="timings">
+                <!-- Split timings data added by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
